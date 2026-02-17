@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if shop %}{{ shop.name }}{% else %}All Bands{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>
+            {% if shop %}
+                {{ shop.name }} Bands
+                <small class="text-muted">({{ shop.bands|length }} total)</small>
+            {% else %}
+                All Bands
+                <small class="text-muted">({{ bands|length }} total)</small>
+            {% endif %}
+        </h1>
+        <div>
+            {% if shop %}
+                <a href="{{ url_for('toggle_shop', shop_id=shop.id) }}" class="btn btn-warning me-2">
+                    {% if shop.is_active %}
+                        <i class="bi bi-toggle-on"></i> Deactivate
+                    {% else %}
+                        <i class="bi bi-toggle-off"></i> Activate
+                    {% endif %}
+                </a>
+            {% endif %}
+            <a href="{{ url_for('add_band') }}{% if shop %}?shop_id={{ shop.id }}{% endif %}" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Add Band
+            </a>
+        </div>
+    </div>
+
+    {% if shop %}
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-shop"></i> Shop Information</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Subscription</dt>
+                        <dd class="col-sm-8">
+                            {{ shop.subscription_start.strftime('%Y-%m-%d') }} to 
+                            {{ shop.subscription_end.strftime('%Y-%m-%d') }}
+                            <small class="d-block text-muted">
+                                ({{ (shop.subscription_end - date).days }} days remaining)
+                            </small>
+                        </dd>
+                        <dt class="col-sm-4">Status</dt>
+                        <dd class="col-sm-8">
+                            {% if shop.is_subscription_active() %}
+                                <span class="badge bg-success">Active</span>
+                            {% else %}
+                                <span class="badge bg-danger">Expired</span>
+                            {% endif %}
+                        </dd>
+                        <dt class="col-sm-4">Last Activity</dt>
+                        <dd class="col-sm-8">
+                            {% set last_active = shop.bands|map(attribute='last_seen')|max %}
+                            {% if last_active %}
+                                {{ last_active.strftime('%Y-%m-%d %H:%M') }}
+                            {% else %}
+                                No activity yet
+                            {% endif %}
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0"><i class="bi bi-watch"></i> {% if shop %}Bands in this Shop{% else %}All Bands{% endif %}</h5>
+            {% if not shop %}
+            <div class="col-md-4">
+                <select class="form-select" id="shopFilter">
+                    <option value="">Filter by Shop</option>
+                    {% for s in shops %}
+                        <option value="{{ s.id }}">{{ s.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            {% endif %}
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Band ID</th>
+                            {% if not shop %}<th>Shop</th>{% endif %}
+                            <th>Status</th>
+                            <th>Uptime</th>
+                            <th>Last Seen</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for band in (shop.bands if shop else bands) %}
+                        <tr id="band-{{ band.band_id }}" class="{% if band.status == 'online' %}table-success{% elif band.status == 'offline' %}table-danger{% endif %}">
+                            <td>
+                                <strong>{{ band.band_id }}</strong>
+                                {% if not band.is_active %}
+                                    <span class="badge bg-secondary ms-2">Inactive</span>
+                                {% endif %}
+                            </td>
+                            {% if not shop %}
+                            <td>
+                                <a href="{{ url_for('shop_detail', shop_id=band.shop_id) }}">{{ band.shop.name }}</a>
+                            </td>
+                            {% endif %}
+                            <td>
+                                <span class="badge bg-{{ 'success' if band.status == 'online' else 'danger' }}">
+                                    {{ band.status|title }}
+                                </span>
+                            </td>
+                            <td>{{ band.uptime }} seconds</td>
+                            <td>
+                                {% if band.last_seen %}
+                                    {{ band.last_seen.strftime('%Y-%m-%d %H:%M') }}
+                                    <small class="d-block text-muted">{{ (now - band.last_seen).days }} days ago</small>
+                                {% else %}
+                                    Never
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="btn-group btn-group-sm">
+                                    <a href="{{ url_for('band_detail', band_id=band.band_id) }}" class="btn btn-info" title="View"><i class="bi bi-eye"></i></a>
+                                    <a href="{{ url_for('toggle_band', band_id=band.band_id) }}" class="btn btn-warning" title="{{ 'Deactivate' if band.is_active else 'Activate' }}">
+                                        <i class="bi {{ 'bi-toggle-on' if band.is_active else 'bi-toggle-off' }}"></i>
+                                    </a>
+                                    <form action="{{ url_for('delete_band', band_id=band.band_id) }}" method="POST" class="d-inline">
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Permanently delete this band?')" title="Delete">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="{% if shop %}6{% else %}7{% endif %}" class="text-center py-4">
+                                <i class="bi bi-exclamation-circle fs-1 text-muted"></i>
+                                <h5 class="mt-2">No bands found</h5>
+                                <a href="{{ url_for('add_band') }}{% if shop %}?shop_id={{ shop.id }}{% endif %}" class="btn btn-primary mt-2">
+                                    <i class="bi bi-plus-circle"></i> Add New Band
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if not shop %}
+<script>
+document.getElementById('shopFilter').addEventListener('change', function () {
+    const shopId = this.value;
+    window.location.href = shopId ? `/bands?shop_id=${shopId}` : '/bands';
+});
+</script>
+{% endif %}
+
+<!-- Real-time Band Updates -->
+<script>
+const socket = io();
+socket.on('band_update', function(data) {
+    const row = document.getElementById(`band-${data.band_id}`);
+    if (row) {
+        const statusBadge = row.querySelector('.badge');
+        statusBadge.className = `badge bg-${data.status === 'online' ? 'success' : 'danger'}`;
+        statusBadge.textContent = data.status.charAt(0).toUpperCase() + data.status.slice(1);
+
+        const uptimeCell = row.querySelector('td:nth-child(4)'); // Adjust index as needed
+        uptimeCell.textContent = data.uptime + ' seconds';
+
+        const lastSeenCell = row.querySelector('td:nth-last-child(2)');
+        lastSeenCell.textContent = new Date(data.last_seen).toLocaleString();
+    }
+});
+</script>
+{% endblock %}

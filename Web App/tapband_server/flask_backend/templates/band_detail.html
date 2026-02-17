@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if shop %}
+        {{ shop.name }} Bands
+    {% else %}
+        All Bands
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>
+            {% if shop %}
+                {{ shop.name }} Bands
+            {% else %}
+                All Bands
+            {% endif %}
+        </h1>
+        <a href="{{ url_for('add_band') }}" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Add Band
+        </a>
+    </div>
+
+    {% if not shop %}
+    <div class="mb-3">
+        <select class="form-select" id="shopFilter">
+            <option value="">All Shops</option>
+            {% for s in shops %}
+            <option value="{{ s.id }}">{{ s.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Band ID</th>
+                    {% if not shop %}<th>Shop</th>{% endif %}
+                    <th>Status</th>
+                    <th>Uptime</th>
+                    <th>Last Seen</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for band in bands %}
+                <tr id="band-{{ band.band_id }}">
+                    <td>{{ band.band_id }}</td>
+                    {% if not shop %}
+                    <td>
+                        <a href="{{ url_for('shop_detail', shop_id=band.shop_id) }}">
+                            {{ band.shop.name }}
+                        </a>
+                    </td>
+                    {% endif %}
+                    <td>
+                        <span class="badge bg-{% if band.status == 'online' %}success{% else %}danger{% endif %}">
+                            {{ band.status|title }}
+                        </span>
+                    </td>
+                    <td>{{ band.uptime }} seconds</td>
+                    <td>
+                        {% if band.last_seen %}
+                            {{ band.last_seen.strftime('%Y-%m-%d %H:%M') }}
+                        {% else %}
+                            Never
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('band_detail', band_id=band.band_id) }}" class="btn btn-sm btn-info">
+                            <i class="bi bi-eye"></i> View
+                        </a>
+                        <a href="{{ url_for('toggle_band', band_id=band.band_id) }}" class="btn btn-sm btn-warning">
+                            {% if band.is_active %}
+                                <i class="bi bi-toggle-on"></i> Deactivate
+                            {% else %}
+                                <i class="bi bi-toggle-off"></i> Activate
+                            {% endif %}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+// Filter bands by shop
+document.getElementById('shopFilter')?.addEventListener('change', function() {
+    const shopId = this.value;
+    window.location.href = shopId ? `/bands?shop_id=${shopId}` : '/bands';
+});
+
+// Real-time updates via Socket.IO
+const socket = io();
+socket.on('band_update', function(data) {
+    const row = document.getElementById(`band-${data.band_id}`);
+    if (row) {
+        // Update status badge
+        const statusBadge = row.querySelector('.badge.bg-success, .badge.bg-danger');
+        statusBadge.className = `badge bg-${data.status === 'online' ? 'success' : 'danger'}`;
+        statusBadge.textContent = data.status.charAt(0).toUpperCase() + data.status.slice(1);
+        
+        // Update uptime if available
+        if (data.uptime) {
+            const uptimeCell = row.querySelector('td:nth-child(4)');
+            uptimeCell.textContent = `${data.uptime} seconds`;
+        }
+        
+        // Update last seen
+        const lastSeenCell = row.querySelector('td:nth-last-child(2)');
+        if (lastSeenCell) {
+            const lastSeen = new Date(data.last_seen);
+            lastSeenCell.textContent = lastSeen.toLocaleString();
+        }
+    }
+});
+</script>
+{% endblock %}

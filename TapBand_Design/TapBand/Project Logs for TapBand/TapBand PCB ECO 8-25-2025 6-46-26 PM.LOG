@@ -1,0 +1,19 @@
+Change Component Footprint: Designator=C12 Old Footprint=FP-CC1206-1_25-MFG New Footprint=FP-CL21-IPC_C
+Change Component Comment : Designator=C12 Old Comment=CC1206KKX7R8BB475 New Comment=CL21B475KAFNNNE
+Change Managed Component Library Link : Designator=C12 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=88A5A799-9BE1-4815-AECE-A7DCD98DABFF New ItemGUID=77FBF4B9-250A-4FBD-80B2-7ED1CD2FFBCD Old RevisionGUID=86FB093B-FDEA-43DA-9702-FD5F5BA4FF4E New RevisionGUID=C40BC997-2A21-49C1-9C79-A308B1AB1B68
+Change component parameters: Designator = "C12" ("C12"); Footprint = "FP-CC1206-1_25-MFG"; UniqueID = "\MFSWNRZE\YHWCLGCM" ("\MFSWNRZE\YHWCLGCM")
+Change component parameters (AddParameter): Name = "Capacitance"; Value = "4.7uF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Case Code (Imperial)"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Case Code (Metric)"; Value = "2012"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Case/Package"; Value = "0805"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lead Free"; Value = "Lead Free"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "0.079inch"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "125°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-55°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Thickness"; Value = "0.053inch"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage Rating"; Value = "25V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage Rating (DC)"; Value = "25V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "0.049inch"; VariantName = "[No Variations]"

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ shop[1] }} - Bands</title>
+    <script>
+        function toggleAlert(shop, band) {
+            fetch('/toggle_alert/' + shop + '/' + band, {
+                method: 'POST'
+            })
+            .then(res => res.json())
+            .then(data => {
+                const btn = document.getElementById('btn-' + band);
+                if (data.alert_enabled) {
+                    btn.innerText = "Disable Alert";
+                } else {
+                    btn.innerText = "Enable Alert";
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>{{ shop[1] }} - Manage Bands</h1>
+    <p>Subscription: {{ shop[2] }} to {{ shop[3] }}</p>
+
+    <form action="/shop/{{ shop[0] }}/add_band" method="post">
+        <button type="submit">Add New Band</button>
+    </form>
+
+    <h2>Bands</h2>
+    <table border="1">
+        <tr>
+            <th>Band Name</th>
+            <th>Status</th>
+            <th>Uptime</th>
+            <th>Last Uptime</th>
+            <th>Offline Since</th>
+            <th>Alert</th>
+            <th>Delete</th>
+        </tr>
+        {% for band, data in devices.items() %}
+        <tr>
+            <td>{{ band }}</td>
+            <td>{{ data.status }}</td>
+            <td>{{ data.uptime }}</td>
+            <td>{{ data.last_uptime or "N/A" }}</td>
+            <td>{{ data.offline_since or "N/A" }}</td>
+            <td>
+                <button id="btn-{{ band }}" onclick="toggleAlert('{{ shop[1] }}', '{{ band }}')">
+                    {{ "Disable Alert" if data.alert_enabled else "Enable Alert" }}
+                </button>
+            </td>
+            <td>
+                <form action="/delete_band/{{ band }}" method="post" onsubmit="return confirm('Delete this band?')">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br><a href="/">← Back to Dashboard</a>
+</body>
+</html>

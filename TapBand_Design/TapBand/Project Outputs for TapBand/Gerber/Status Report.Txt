@@ -1,0 +1,38 @@
+Output: Gerber X2 Files
+Type  : GerberX2
+From  : Variant [[No Variations]] of Project [TapBand.PrjPcb]
+   Generated File[TapBand_Copper_Signal_Top.gbr]
+   Generated File[TapBand_Copper_Signal_1.gbr]
+   Generated File[TapBand_Copper_Signal_2.gbr]
+   Generated File[TapBand_Copper_Signal_Bot.gbr]
+   Generated File[TapBand_Pads_Bot.gbr]
+   Generated File[TapBand_Pads_Top.gbr]
+   Generated File[TapBand_Legend_Top.gbr]
+   Generated File[TapBand_Legend_Bot.gbr]
+   Generated File[TapBand_Soldermask_Top.gbr]
+   Generated File[TapBand_Soldermask_Bot.gbr]
+   Generated File[TapBand_Paste_Top.gbr]
+   Generated File[TapBand_Paste_Bot.gbr]
+   Generated File[TapBand_Keep-out.gbr]
+   Generated File[TapBand_Mechanical_1.gbr]
+   Generated File[TapBand_Top_Assembly.gbr]
+   Generated File[TapBand_Top_3D_Body.gbr]
+   Generated File[TapBand_Top_Courtyard.gbr]
+   Generated File[TapBand_Top_Component_Center.gbr]
+   Generated File[TapBand_Bottom_Assembly.gbr]
+   Generated File[TapBand_Bottom_Courtyard.gbr]
+   Generated File[TapBand_Bottom_3D_Body.gbr]
+   Generated File[TapBand_Bottom_Component_Center.gbr]
+   Generated File[TapBand_Profile.gbr]
+   Generated File[TapBand_NPTH_Drill.gbr]
+   Generated File[TapBand_PTH_Drill.gbr]
+   Generated File[TapBand_Drawing_1.gbr]
+   Generated File[TapBand_Drillmap_1.gbr]
+   Generated File[TapBand.EXTREP]
+   Generated File[TapBand.REP]
+
+
+Files Generated   : 29
+Documents Printed : 0
+
+Finished Output Generation At 9:13:58 PM On 8/30/2025

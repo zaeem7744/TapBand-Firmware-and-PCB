@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Band{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">Add New Band</h5>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+	   <div class="mb-3">
+                <label for="band_id" class="form-label">Band ID</label>
+                <input type="text" class="form-control" id="band_id" name="band_id" required>
+                <div class="form-text">Example: BAND001, BAND002, etc.</div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="shop_id" class="form-label">Shop</label>
+                <select class="form-select" id="shop_id" name="shop_id" required>
+                    {% for shop in shops %}
+                    <option value="{{ shop.id }}" 
+                        {% if request.args.get('shop_id') == shop.id|string %}selected{% endif %}>
+                        {{ shop.name }} (ID: {{ shop.id }})
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save"></i> Save Band
+            </button>
+            <a href="{{ url_for('band_list') }}" class="btn btn-secondary">
+                <i class="bi bi-x-circle"></i> Cancel
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}

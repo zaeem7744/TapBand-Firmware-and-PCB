@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}{{ shop.name }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>{{ shop.name }}</h1>
+    <div>
+        <a href="{{ url_for('toggle_shop', shop_id=shop.id) }}" class="btn btn-warning me-2">
+            {% if shop.is_active %}
+                <i class="bi bi-toggle-on"></i> Deactivate
+            {% else %}
+                <i class="bi bi-toggle-off"></i> Activate
+            {% endif %}
+        </a>
+        <a href="{{ url_for('add_band') }}?shop_id={{ shop.id }}" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Add Band
+        </a>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Shop Information</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">Subscription Start</dt>
+                    <dd class="col-sm-8">{{ shop.subscription_start.strftime('%Y-%m-%d') }}</dd>
+
+                    <dt class="col-sm-4">Subscription End</dt>
+                    <dd class="col-sm-8">{{ shop.subscription_end.strftime('%Y-%m-%d') }}</dd>
+
+                    <dt class="col-sm-4">Status</dt>
+                    <dd class="col-sm-8">
+                        {% if shop.is_subscription_active() %}
+                            <span class="badge bg-success">Active</span>
+                        {% else %}
+                            <span class="badge bg-danger">Expired</span>
+                        {% endif %}
+                    </dd>
+
+                    <dt class="col-sm-4">Total Bands</dt>
+                    <dd class="col-sm-8">{{ shop.bands|length }}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="mb-3">Bands in this Shop</h3>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Band ID</th>
+                <th>Status</th>
+                <th>Uptime</th>
+                <th>Last Seen</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for band in shop.bands %}
+            <tr id="band-{{ band.band_id }}">
+                <td>{{ band.band_id }}</td>
+                <td>
+                    <span class="badge bg-{% if band.status == 'online' %}success{% else %}danger{% endif %}">
+                        {{ band.status|title }}
+                    </span>
+                </td>
+                <td>{{ band.uptime }} seconds</td>
+                <td>
+                    <span class="last-seen">
+                        {% if band.last_seen %}
+                            {{ band.last_seen.strftime('%Y-%m-%d %H:%M') }}
+                        {% else %}
+                            Never
+                        {% endif %}
+                    </span>
+                </td>
+                <td>
+                    <a href="{{ url_for('band_detail', band_id=band.band_id) }}" class="btn btn-sm btn-info">
+                        <i class="bi bi-eye"></i> View
+                    </a>
+                    <a href="{{ url_for('toggle_band', band_id=band.band_id) }}" class="btn btn-sm btn-warning">
+                        {% if band.is_active %}
+                            <i class="bi bi-toggle-on"></i> Deactivate
+                        {% else %}
+                            <i class="bi bi-toggle-off"></i> Activate
+                        {% endif %}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>TapBand Dashboard</h1>
+    <div>
+        <a href="{{ url_for('add_shop') }}" class="btn btn-success me-2">
+            <i class="bi bi-plus-circle"></i> Add Shop
+        </a>
+        <a href="{{ url_for('add_band') }}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Add Band
+        </a>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Total Shops</h5>
+                <p class="card-text display-4">{{ stats.total_shops }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Total Bands</h5>
+                <p class="card-text display-4">{{ stats.total_bands }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title">Active Shops</h5>
+                <p class="card-text display-4">{{ stats.active_shops }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('shop_list') }}">Shops</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('band_list') }}">Bands</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Subscription</th>
+                    <th>Status</th>
+                    <th>Bands</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for shop in shops %}
+                <tr id="shop-{{ shop.id }}">
+                    <td>{{ shop.id }}</td>
+                    <td>{{ shop.name }}</td>
+                    <td>
+                        {{ shop.subscription_start.strftime('%Y-%m-%d') }} to 
+                        {{ shop.subscription_end.strftime('%Y-%m-%d') }}
+                    </td>
+                    <td>
+                        {% if shop.is_subscription_active() %}
+                            <span class="badge bg-success">Active</span>
+                        {% else %}
+                            <span class="badge bg-danger">Expired</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ shop.bands|length }}</td>
+                    <td>
+                        <a href="{{ url_for('shop_detail', shop_id=shop.id) }}" class="btn btn-sm btn-info">
+                            <i class="bi bi-eye"></i> View
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

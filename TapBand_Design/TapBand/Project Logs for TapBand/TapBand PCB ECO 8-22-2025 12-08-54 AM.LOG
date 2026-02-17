@@ -1,0 +1,80 @@
+Removed Pin From Net: NetName=VCC Pin=D3-1
+Removed Pin From Net: NetName=NetD1_1 Pin=R9-2
+Change Component Footprint: Designator=D1 Old Footprint=FP-LTST-C150AKT-MFG New Footprint=FP-LTST-C190GKT-MFG
+Change Component Footprint: Designator=D3 Old Footprint=FP-SML-LX1206GC-TR-MFG New Footprint=FP-LTST-C191KSKT-MFG
+Change Component Comment : Designator=D1 Old Comment=LTST-C150AKT New Comment=LTST-C190GKT
+Change Component Comment : Designator=D3 Old Comment=SML-LX1206GC-TR New Comment=LTST-C191KSKT
+Change Managed Component Library Link : Designator=D1 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=8B706941-5903-454C-B075-A7A7D9AE9A2F New ItemGUID=081492FC-CAEA-4C79-885A-D0C33FB32B7E Old RevisionGUID=B137ABEE-81D1-4DEE-AB62-354061B4EF04 New RevisionGUID=BB6338E7-18A7-46F3-B0CC-5DA53CC2852E
+Change Managed Component Library Link : Designator=D3 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=CCEE1CA0-4D19-45F8-8115-0F09C96A91C7 New ItemGUID=739837DB-75CB-416F-889B-263C7F4980DC Old RevisionGUID=01F57331-BE27-490D-A6F4-25B18B2B021B New RevisionGUID=9D14EFC2-4F3E-4A04-8860-175249E79C41
+Change component parameters: Designator = "D1" ("D1"); Footprint = "FP-LTST-C150AKT-MFG"; UniqueID = "\WBUNSXBM\BDKSGCYA" ("\WBUNSXBM\BDKSGCYA")
+Change component parameters (AddParameter): Name = "Case Code (Imperial)"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Case Code (Metric)"; Value = "1608"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Case/Package"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Color"; Value = "Green"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Depth"; Value = "0.8mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Dominant Wavelength"; Value = "569nm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Current"; Value = "30mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Voltage"; Value = "2.1V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "0.8mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Illumination Color"; Value = "Green"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lead Free"; Value = "Lead Free"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "1.6mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lens Color"; Value = "Colorless"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lens Style"; Value = "Clear"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lens Transparency"; Value = "Clear"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Luminous Intensity"; Value = "6mcd"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "85°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-55°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Elements"; Value = "1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of LEDs"; Value = "1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Pins"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Quantity"; Value = "1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power Dissipation"; Value = "100mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power Rating"; Value = "100mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Radiation Hardening"; Value = "No"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reverse Voltage"; Value = "5V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Test Current"; Value = "10mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Viewing Angle"; Value = "130°"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage"; Value = "2V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Wavelength"; Value = "565nm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "0.8mm"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D3" ("D3"); Footprint = "FP-SML-LX1206GC-TR-MFG"; UniqueID = "\WBUNSXBM\PNKVOLMO" ("\WBUNSXBM\PNKVOLMO")
+Change component parameters (AddParameter): Name = "Case Code (Imperial)"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Case Code (Metric)"; Value = "1608"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Case/Package"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Color"; Value = "Yellow"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Depth"; Value = "0.8mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Dominant Wavelength"; Value = "597nm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Current"; Value = "30mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Voltage"; Value = "2.4V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "0.55mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Illumination Color"; Value = "Yellow"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lead Free"; Value = "Lead Free"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "1.6mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lens Color"; Value = "Colorless"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lens Style"; Value = "Diffused"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lens Transparency"; Value = "Clear"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Luminous Intensity"; Value = "180mcd"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "85°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-55°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Elements"; Value = "1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of LEDs"; Value = "1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Pins"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Quantity"; Value = "1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power Dissipation"; Value = "75mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power Rating"; Value = "75mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Radiation Hardening"; Value = "No"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reverse Voltage"; Value = "5V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Test Current"; Value = "20mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Viewing Angle"; Value = "130°"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Wavelength"; Value = "588nm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "0.8mm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VCC Pin=D3-2
+Added Pin To Net: NetName=NetD1_1 Pin=R6-2
+Added Pin To Net: NetName=NetD3_1 Pin=D3-1
+Added Pin To Net: NetName=NetD3_1 Pin=R9-2
+Added Net: Name=NetD3_1

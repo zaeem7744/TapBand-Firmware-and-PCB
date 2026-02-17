@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Edit Shop: {{ shop.name }}</h2>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="{{ url_for('edit_shop', shop_id=shop.id) }}">
+            <div class="mb-3">
+                <label for="name" class="form-label">Shop Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ shop.name }}" required>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="start_date" class="form-label">Subscription Start Date</label>
+                    <input type="date" class="form-control" id="start_date" name="start_date" 
+                           value="{{ shop.subscription_start.strftime('%Y-%m-%d') }}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="end_date" class="form-label">Subscription End Date</label>
+                    <input type="date" class="form-control" id="end_date" name="end_date" 
+                           value="{{ shop.subscription_end.strftime('%Y-%m-%d') }}" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Update Shop</button>
+            <a href="{{ url_for('shop_detail', shop_id=shop.id) }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

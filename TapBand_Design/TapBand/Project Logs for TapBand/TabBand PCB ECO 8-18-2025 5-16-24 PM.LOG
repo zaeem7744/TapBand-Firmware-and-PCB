@@ -1,0 +1,10 @@
+Added Component: Designator=S1(SW_SLLB120300)
+Add component (AddParameter): Name = "MF"; Value = "HS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mfr. Part #"; Value = "HS96L03W2C03"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "*SSD1315 I2C 128x64 0.96 OLED Display ROHS"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetR15_2 Pin=S1-1
+Added Pin To Net: NetName=NetR29_2 Pin=S1-4
+Added Pin To Net: NetName=NetR8_1 Pin=S1-C_1
+Added Pin To Net: NetName=NetR17_2 Pin=S1-GND
+Added Pin To Net: NetName=NetR16_2 Pin=S1-T

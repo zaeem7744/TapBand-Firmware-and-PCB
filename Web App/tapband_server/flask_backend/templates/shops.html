@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Shops{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">All Shops</h1>
+
+<div class="mb-3">
+    <a href="{{ url_for('add_shop') }}" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Add New Shop
+    </a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Subscription Period</th>
+                <th>Status</th>
+                <th>Bands</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for shop in shops %}
+            <tr id="shop-{{ shop.id }}">
+                <td>{{ shop.id }}</td>
+                <td>{{ shop.name }}</td>
+                <td>
+                    {{ shop.subscription_start.strftime('%Y-%m-%d') }} to 
+                    {{ shop.subscription_end.strftime('%Y-%m-%d') }}
+                </td>
+                <td>
+                    {% if shop.is_subscription_active() %}
+                        <span class="badge bg-success">Active</span>
+                    {% else %}
+                        <span class="badge bg-danger">Expired</span>
+                    {% endif %}
+                </td>
+                <td>{{ shop.bands|length }}</td>
+                <td>
+                    <a href="{{ url_for('shop_detail', shop_id=shop.id) }}" class="btn btn-sm btn-info me-1">
+                        <i class="bi bi-eye"></i> View
+                    </a>
+                    <a href="{{ url_for('toggle_shop', shop_id=shop.id) }}" class="btn btn-sm btn-warning me-1">
+                        {% if shop.is_active %}
+                            <i class="bi bi-toggle-on"></i> Deactivate
+                        {% else %}
+                            <i class="bi bi-toggle-off"></i> Activate
+                        {% endif %}
+                    </a>
+                    <form action="{{ url_for('delete_shop', shop_id=shop.id) }}" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-danger" 
+                                onclick="return confirm('Delete this shop and ALL its bands?')">
+                            <i class="bi bi-trash"></i> Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+	    
+	    
+	    </tbody>
+    </table>
+</div>
+{% endblock %}

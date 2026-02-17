@@ -1,0 +1,19 @@
+Change Component Footprint: Designator=R4 Old Footprint=RESC3116X65X40LL10T20 New Footprint=RESC1608X55X25ML10T15
+Change Component Comment : Designator=R4 Old Comment=RC1206FR-07220KL New Comment=RC0603FR-07220KL
+Change Managed Component Library Link : Designator=R4 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=5B56D5E2-F92B-4197-B72E-C9B159DCEC5F New ItemGUID=891C3897-2ECF-43E1-ACA3-06F4839F8557 Old RevisionGUID=5F8BAF7B-A7C9-4D7C-86ED-99730067D050 New RevisionGUID=86CE2E2B-81C8-4EFE-BC46-2043DBF719FA
+Change component parameters: Designator = "R4" ("R4"); Footprint = "RESC3116X65X40LL10T20"; UniqueID = "\WBUNSXBM\YFRUAPFO" ("\WBUNSXBM\YFRUAPFO")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.yageo.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DatasheetVersion"; Value = "Rev. 4, 02/2016"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "0.25 inch"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "0.75 inch"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "70 degC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-25 degC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "2-Pin Surface Mount Device, Body 1.6 x 0.8 mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "REACH SVHC"; Value = "No SVHC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Resistance"; Value = "0.1 Ohm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RoHSCompliant"; Value = "true"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "0.25 inch"; VariantName = "[No Variations]"

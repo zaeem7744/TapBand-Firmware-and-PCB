@@ -1,0 +1,18 @@
+Add component: Footprint Not Found SW_SLLB120300
+Added Component: Designator=U2(MODULE_DM-OLED096-636)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/DM-OLED096-636/Display+Module/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Display Module"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "HS96L03W2C03"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Package"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Parameter 1"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/DM-OLED096-636/Display+Module/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin S1-1
+Add Pin To Net: Unknown Pin: Pin S1-4
+Add Pin To Net: Unknown Pin: Pin S1-C_1
+Add Pin To Net: Unknown Pin: Pin S1-GND
+Add Pin To Net: Unknown Pin: Pin S1-T
+Added Pin To Net: NetName=GND Pin=U2-1
+Added Pin To Net: NetName=3V3 Pin=U2-2
+Added Pin To Net: NetName=SCL Pin=U2-3
+Added Pin To Net: NetName=SDA Pin=U2-4
