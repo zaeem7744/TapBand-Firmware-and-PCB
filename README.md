@@ -1,4 +1,4 @@
-# âŒš TapBand â€” MQTT-Based Battery-Powered IoT Wearable Device
+# ⌚ TapBand — MQTT-Based Battery-Powered IoT Wearable Device
 
 ![ESP32](https://img.shields.io/badge/ESP32-E7352C?style=flat-square&logo=espressif&logoColor=white)
 ![MQTT](https://img.shields.io/badge/MQTT-660066?style=flat-square&logo=mqtt&logoColor=white)
@@ -6,46 +6,46 @@
 ![Altium Designer](https://img.shields.io/badge/Altium_Designer-A5915F?style=flat-square&logo=altiumdesigner&logoColor=white)
 ![WiFi](https://img.shields.io/badge/Wi--Fi-4285F4?style=flat-square&logo=wifi&logoColor=white)
 
-Compact **5cm Ã— 3cm** battery-powered wearable device with MQTT communication, OLED display, and deep-sleep power optimization. Built for a commercial security application â€” **currently in mass production**.
+Compact **5cm × 3cm** battery-powered wearable device with MQTT communication, OLED display, and deep-sleep power optimization. Built for a commercial security application — **currently in mass production**.
 
 > See also: [TapBand Web Dashboard](https://github.com/zaeem7744/TapBand-Web-Dashboard)
 
 ---
 
-## ðŸ”§ Features
+## 🔧 Features
 
-- **Ultra-Compact Design** â€” 5cm Ã— 3cm form factor optimized for wearable use
-- **MQTT Communication** â€” Real-time bidirectional messaging via MQTT protocol (HiveMQ)
-- **OLED Display** â€” Menu-driven interface with navigation buttons
-- **Deep-Sleep Optimization** â€” Battery-powered with aggressive power saving for extended life
-- **Wi-Fi Provisioning** â€” Hotspot-based setup for easy deployment without hardcoding credentials
-- **WS2812B LED Indicators** â€” Visual status feedback with addressable LEDs
-- **Vibration Motor** â€” Haptic feedback for alerts and notifications
-- **Real-Time Admin Panel** â€” Subscription management via web dashboard
-- **Custom PCB** â€” Designed in Altium Designer, production-ready with Gerber files
-- **Mass Production Ready** â€” Currently manufactured commercially
-
----
-
-## ðŸ“‚ Project Structure
-
-```
-â”œâ”€â”€ TapBand_Main/              # Main production firmware
-â”œâ”€â”€ TapBand_Design/            # PCB design files (Altium Designer)
-â”œâ”€â”€ MQTT/                      # MQTT communication module
-â”œâ”€â”€ OLED_MQTT/                 # OLED + MQTT integration
-â”œâ”€â”€ OLED_INTERFAACE/           # OLED display driver
-â”œâ”€â”€ WIFI_PROVISIONIG_MQTT_OLED/ # Wi-Fi provisioning
-â”œâ”€â”€ PowerSave_AlertBand_Test/  # Deep-sleep power testing
-â”œâ”€â”€ WS2812_Test/               # LED strip testing
-â”œâ”€â”€ Board_Vibrator_Test/       # Vibration motor testing
-â”œâ”€â”€ Sync_Mqtt_Hive/            # MQTT broker sync module
-â””â”€â”€ Web App/                   # Companion web application
-```
+- **Ultra-Compact Design** — 5cm × 3cm form factor optimized for wearable use
+- **MQTT Communication** — Real-time bidirectional messaging via MQTT protocol (HiveMQ)
+- **OLED Display** — Menu-driven interface with navigation buttons
+- **Deep-Sleep Optimization** — Battery-powered with aggressive power saving for extended life
+- **Wi-Fi Provisioning** — Hotspot-based setup for easy deployment without hardcoding credentials
+- **WS2812B LED Indicators** — Visual status feedback with addressable LEDs
+- **Vibration Motor** — Haptic feedback for alerts and notifications
+- **Real-Time Admin Panel** — Subscription management via web dashboard
+- **Custom PCB** — Designed in Altium Designer, production-ready with Gerber files
+- **Mass Production Ready** — Currently manufactured commercially
 
 ---
 
-## ðŸ› ï¸ Tech Stack
+## 📂 Project Structure
+
+```
+├── TapBand_Main/              # Main production firmware
+├── TapBand_Design/            # PCB design files (Altium Designer)
+├── MQTT/                      # MQTT communication module
+├── OLED_MQTT/                 # OLED + MQTT integration
+├── OLED_INTERFAACE/           # OLED display driver
+├── WIFI_PROVISIONIG_MQTT_OLED/ # Wi-Fi provisioning
+├── PowerSave_AlertBand_Test/  # Deep-sleep power testing
+├── WS2812_Test/               # LED strip testing
+├── Board_Vibrator_Test/       # Vibration motor testing
+├── Sync_Mqtt_Hive/            # MQTT broker sync module
+└── Web App/                   # Companion web application
+```
+
+---
+
+## 🛠️ Tech Stack
 
 - **MCU:** ESP32
 - **Language:** C/C++ (PlatformIO)
@@ -58,9 +58,9 @@ Compact **5cm Ã— 3cm** battery-powered wearable device with MQTT communicatio
 
 ---
 
-## ðŸ‘¤ Author
+## 👤 Author
 
 **Muhammad Zaeem Sarfraz**
-- ðŸ”— [LinkedIn](https://www.linkedin.com/in/zaeemsarfraz7744/)
-- ðŸ“§ Zaeem.7744@gmail.com
-- ðŸŒ Vaasa, Finland
+- 🔗 [LinkedIn](https://www.linkedin.com/in/zaeemsarfraz7744/)
+- 📧 Zaeem.7744@gmail.com
+- 🌍 Vaasa, Finland
